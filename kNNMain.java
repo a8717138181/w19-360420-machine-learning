@@ -2,10 +2,7 @@ import java.util.List;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Scanner;
-<<<<<<< HEAD
-=======
 
->>>>>>> d99d7f22f32e9f11338e5d52ff6561dec7a071b5
 
 
 public class kNNMain{
@@ -28,24 +25,40 @@ public class kNNMain{
 	String input= null;
 	Scanner userinput = new Scanner(System.in); 
 	input = userinput.nextLine();	
-	DataSet.readDataSet("H:\\w19-360420-machine-learning\\data\\" + input);
+	DataSet.readDataSet("H:\\w19-360420-machine-learning\\data\\" +input);
 
 	
 	System.out.println("Please enter degree for list of dataPoints with higher order polynomial X");
 	Scanner in = new Scanner(System.in);
 	int degree = in.nextInt();
 	
-	DataSet.readDataSetHigherOrderFeatures("H:\\w19-360420-machine-learning\\data\\"+ input, degree);
+	DataSet.readDataSetHigherOrderFeatures("H:\\w19-360420-machine-learning\\data\\"+input, degree);
 	
 	
 	
 	System.out.println("");
-	System.out.println("is Numeric ? " +  DataSet.isNumeric("H:\\w19-360420-machine-learning\\data\\"+ input));
+	
+	System.out.println("is Numeric ? " +  DataSet.isNumeric("H:\\w19-360420-machine-learning\\data\\"+input));
+	
+	
+	System.out.println("getLabels  " + DataSet.getLabels("H:\\w19-360420-machine-learning\\data\\"+input ));
 
 
     //TASK 2:Use the DataSet class to split the fullDataSet into Training and Held Out Test Dataset
 	
+	System.out.println("Please enter a fractioninput for TestSet");
+	Scanner sc = new Scanner(System.in);
+	double fractionTestSet = sc.nextInt();
+	DataSet.getTestSet("H:\\w19-360420-machine-learning\\data\\"+input, fractionTestSet);
+	
+	System.out.println("Please enter a fractioninput for TrainingSet");
+	Scanner op = new Scanner(System.in);
+	double fractionTrainingSet = op.nextInt();
+	
+	
+	DataSet.getTrainingSet("H:\\w19-360420-machine-learning\\data\\"+input, fractionTrainingSet );
 
+	
 
     // TASK 3: Use the DataSet class methods to plot the 2D data (binary and multi-class)
 
