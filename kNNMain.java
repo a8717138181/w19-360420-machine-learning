@@ -40,23 +40,22 @@ public class kNNMain{
 	
 	System.out.println("is Numeric ? " +  DataSet.isNumeric("H:\\w19-360420-machine-learning\\data\\"+input));
 	
-	
-	System.out.println("getLabels  " + DataSet.getLabels("H:\\w19-360420-machine-learning\\data\\"+input ));
+	System.out.println ("....."+(DataSet.getLabels(DataSet.readDataSet("H:\\w19-360420-machine-learning\\data\\" +input))));
 
 
     //TASK 2:Use the DataSet class to split the fullDataSet into Training and Held Out Test Dataset
 	
-	System.out.println("Please enter a fractioninput for TestSet");
-	Scanner sc = new Scanner(System.in);
-	double fractionTestSet = sc.nextInt();
-	DataSet.getTestSet("H:\\w19-360420-machine-learning\\data\\"+input, fractionTestSet);
-	
 	System.out.println("Please enter a fractioninput for TrainingSet");
 	Scanner op = new Scanner(System.in);
-	double fractionTrainingSet = op.nextInt();
+	double fractionTrainingSet = op.nextDouble();
+	System.out.println ("......"+ DataSet.getTrainingSet(DataSet.readDataSet("H:\\w19-360420-machine-learning\\data\\" +input), fractionTrainingSet));
 	
+	System.out.println("Please enter a fractioninput for TestSet");
+	Scanner sc = new Scanner(System.in);
+	double fractionTestSet = sc.nextDouble();
+	System.out.println ("....."+ DataSet.getTestSet(DataSet.getTrainingSet(DataSet.readDataSet("H:\\w19-360420-machine-learning\\data\\" +input), fractionTrainingSet),fractionTestSet));
 	
-	DataSet.getTrainingSet("H:\\w19-360420-machine-learning\\data\\"+input, fractionTrainingSet );
+
 
 	
 
