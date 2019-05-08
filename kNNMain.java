@@ -12,12 +12,28 @@ public class kNNMain{
     // TASK 1: Use command line arguments to point DataSet.readDataSet method to
     // the desired file. Choose a given DataPoint, and print its features and label
 	System.out.println("Please enter a file name that you want analyse");
+	System.out.println("breastCancer.csv           ");
+	System.out.println("data2DBinary.csv           ");
+	System.out.println("data2DOneVsAll.csv         ");
+	System.out.println("dataML.csv                 ");
+	System.out.println("handwrittenDigits.csv      ");
+	System.out.println("iris.csv                   ");
+	System.out.println("microchip.csv              ");
+	
 	Scanner userinput = new Scanner(System.in); 
-	String filename = userinput.nextLine();	
-	DataSet.readDataSet("C:\\Users\\ziang\\w19-360420-machine-learning\\data\\breastCancer.csv");
+	
+	String filename = userinput.nextLine();
+	
+	
+	DataSet.readDataSet("C:\\Users\\ziang\\w19-360420-machine-learning\\data\\breastCancer.csv ");
+	
 	System.out.println("");
-	System.out.println("is Numeric");
-	System.out.println("  " +  DataSet.isNumeric("C:\\Users\\ziang\\w19-360420-machine-learning\\data\\breastCancer.csv"));
+	
+	DataSet.readDataSetHigherOrderFeatures("C:\\Users\\ziang\\w19-360420-machine-learning\\data\\breastCancer.csv");
+	
+	DataSet.getLabels("\\data\\breastCancer.csv ");
+	
+	System.out.println("is Numeric  " +  DataSet.isNumeric("C:\\Users\\ziang\\w19-360420-machine-learning\\data\\breastCancer.csv"));
 	
 
     //TASK 2:Use the DataSet class to split the fullDataSet into Training and Held Out Test Dataset
