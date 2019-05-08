@@ -1,6 +1,7 @@
 import java.util.List;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
+import java.util.Scanner;
 
 
 
@@ -10,8 +11,14 @@ public class kNNMain{
 
     // TASK 1: Use command line arguments to point DataSet.readDataSet method to
     // the desired file. Choose a given DataPoint, and print its features and label
-
-
+	System.out.println("Please enter a file name that you want analyse");
+	Scanner userinput = new Scanner(System.in); 
+	String filename = userinput.nextLine();	
+	DataSet.readDataSet("C:\\Users\\ziang\\w19-360420-machine-learning\\data\\breastCancer.csv");
+	System.out.println("");
+	System.out.println("is Numeric");
+	System.out.println("  " +  DataSet.isNumeric("C:\\Users\\ziang\\w19-360420-machine-learning\\data\\breastCancer.csv"));
+	
 
     //TASK 2:Use the DataSet class to split the fullDataSet into Training and Held Out Test Dataset
 
