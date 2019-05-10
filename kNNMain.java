@@ -42,13 +42,13 @@ public class kNNMain{
 	System.out.println("Please enter a fractioninput for TrainingSet");
 	Scanner op = new Scanner(System.in);
 	double fractionTrainingSet = op.nextDouble();
-	System.out.println ("......"+ (DataSet.getTrainingSet(MyData, fractionTrainingSet)));
+	System.out.println ("......"+ (DataSet.getTrainingSet(MyData,fractionTrainingSet)));
 	
 	
 	System.out.println("Please enter a fractioninput for TestSet");
 	Scanner sc = new Scanner(System.in);
 	double fractionTestSet = sc.nextDouble();
-	System.out.println ("....."+ DataSet.getTestSet(MyData ,fractionTestSet));
+	System.out.println ("....."+ DataSet.getTestSet(MyData,fractionTestSet));
 	
 
     // TASK 3: Use the DataSet class methods to plot the 2D data (binary and multi-class)
