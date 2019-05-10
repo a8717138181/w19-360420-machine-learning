@@ -48,7 +48,7 @@ public class kNNMain{
 	System.out.println("Please enter a fractioninput for TrainingSet");
 	Scanner op = new Scanner(System.in);
 	double fractionTrainingSet = op.nextDouble();
-	System.out.println ("......"+ DataSet.getTrainingSet(DataSet.readDataSet("H:\\w19-360420-machine-learning\\data\\" +input), fractionTrainingSet));
+	System.out.println ("......"+ (DataSet.getTrainingSet(DataSet.readDataSet("H:\\w19-360420-machine-learning\\data\\" +input), fractionTrainingSet)));
 	
 	System.out.println("Please enter a fractioninput for TestSet");
 	Scanner sc = new Scanner(System.in);
@@ -56,11 +56,9 @@ public class kNNMain{
 	System.out.println ("....."+ DataSet.getTestSet(DataSet.getTrainingSet(DataSet.readDataSet("H:\\w19-360420-machine-learning\\data\\" +input), fractionTrainingSet),fractionTestSet));
 	
 
-
-	
-
     // TASK 3: Use the DataSet class methods to plot the 2D data (binary and multi-class)
 
+	
 
 
     // TASK 4: write a new method in DataSet.java which takes as arguments to DataPoint objects,
