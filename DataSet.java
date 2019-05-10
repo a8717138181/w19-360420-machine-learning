@@ -146,7 +146,7 @@ public class DataSet {
   public static List<DataPoint> getTestSet(List<DataPoint> fullDataSet, double fractionTestSet) {
 
     // Random rnd = new Random(123);
-    // Collections.shuffle(fullDataSet, rnd);
+     //Collections.shuffle(fullDataSet, rnd);
     Collections.shuffle(fullDataSet);
 
     List<DataPoint> testSet = new ArrayList<DataPoint>();

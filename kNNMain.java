@@ -13,7 +13,7 @@ public class kNNMain{
     // the desired file. Choose a given DataPoint, and print its features and label
 
 	
-	 System.out.println("Please enter a file name that you want analyse");
+	System.out.println("Please enter a file name that you want analyse");
 	System.out.println("breastCancer.csv           ");
 	System.out.println("data2DBinary.csv           ");
 	System.out.println("data2DOneVsAll.csv         ");
@@ -25,22 +25,16 @@ public class kNNMain{
 	String input= null;
 	Scanner userinput = new Scanner(System.in); 
 	input = userinput.nextLine();	
-	DataSet.readDataSet("H:\\w19-360420-machine-learning\\data\\" +input);
-
 	
-	System.out.println("Please enter degree for list of dataPoints with higher order polynomial X");
-	Scanner in = new Scanner(System.in);
-	int degree = in.nextInt();
+	List<DataPoint> MyData=DataSet.readDataSet("H:\\w19-360420-machine-learning\\data\\"+input);
 	
-	DataSet.readDataSetHigherOrderFeatures("H:\\w19-360420-machine-learning\\data\\"+input, degree);
-	
-	
-	
-	System.out.println("");
+	DataPoint dp3 = MyData.get(3);
 	
 	System.out.println("is Numeric ? " +  DataSet.isNumeric("H:\\w19-360420-machine-learning\\data\\"+input));
 	
-	System.out.println ("....."+(DataSet.getLabels(DataSet.readDataSet("H:\\w19-360420-machine-learning\\data\\" +input))));
+	System.out.println(""+dp3.getLabel());
+	
+	System.out.println(Arrays.toString(dp3.getX()));
 
 
     //TASK 2:Use the DataSet class to split the fullDataSet into Training and Held Out Test Dataset
@@ -48,17 +42,17 @@ public class kNNMain{
 	System.out.println("Please enter a fractioninput for TrainingSet");
 	Scanner op = new Scanner(System.in);
 	double fractionTrainingSet = op.nextDouble();
-	System.out.println ("......"+ (DataSet.getTrainingSet(DataSet.readDataSet("H:\\w19-360420-machine-learning\\data\\" +input), fractionTrainingSet)));
+	System.out.println ("......"+ (DataSet.getTrainingSet(MyData, fractionTrainingSet)));
+	
 	
 	System.out.println("Please enter a fractioninput for TestSet");
 	Scanner sc = new Scanner(System.in);
 	double fractionTestSet = sc.nextDouble();
-	System.out.println ("....."+ DataSet.getTestSet(DataSet.getTrainingSet(DataSet.readDataSet("H:\\w19-360420-machine-learning\\data\\" +input), fractionTrainingSet),fractionTestSet));
+	System.out.println ("....."+ DataSet.getTestSet(MyData ,fractionTestSet));
 	
 
     // TASK 3: Use the DataSet class methods to plot the 2D data (binary and multi-class)
 
-	
 
 
     // TASK 4: write a new method in DataSet.java which takes as arguments to DataPoint objects,
