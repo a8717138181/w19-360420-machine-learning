@@ -42,23 +42,18 @@ public class kNNMain{
 	System.out.println("Please enter a fractioninput for TrainingSet");
 	Scanner op = new Scanner(System.in);
 	double fractionTrainingSet = op.nextDouble();
-	System.out.println ("......"+ (DataSet.getTrainingSet(MyData,fractionTrainingSet)));
+	List<DataPoint> xxx = DataSet.getTrainingSet(MyData,fractionTrainingSet);
 	
 	
 	System.out.println("Please enter a fractioninput for TestSet");
 	Scanner sc = new Scanner(System.in);
 	double fractionTestSet = sc.nextDouble();
-	System.out.println ("....."+ DataSet.getTestSet(MyData,fractionTestSet));
-	
-
-    // TASK 3: Use the DataSet class methods to plot the 2D data (binary and multi-class)
-
-
+	List<DataPoint> qqq= DataSet.getTestSet(MyData,fractionTestSet);
 
     // TASK 4: write a new method in DataSet.java which takes as arguments to DataPoint objects,
     // and returns the Euclidean distance between those two points (as a double)
 
-
+	
 
     // TASK 5: Use the KNNClassifier class to determine the k nearest neighbors to a given DataPoint,
     // and make a print a predicted target label
