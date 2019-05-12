@@ -250,7 +250,10 @@ public class DataSet {
   ////////////////////////////////////////////////////////////////////////////
   // TASK 4: make a method here called distanceEuclid 
 
+public static distanceEuclid(List<DataPoint> fullDataSet)){
+	
+	double distance = Math.sqrt(Math.pow((x1-x2), 2) + Math.pow((y1-y2), 2));
+	return distance;
+}
   ////////////////////////////////////////////////////////////////////////////
-
-
 }

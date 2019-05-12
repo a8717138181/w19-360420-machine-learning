@@ -19,27 +19,35 @@ public class kNNMain{
 	System.out.println("handwrittenDigits.csv      ");
 	System.out.println("iris.csv                   ");
 	System.out.println("microchip.csv              ");
-	
+
+	String input= null;
 	Scanner userinput = new Scanner(System.in); 
+	input = userinput.nextLine();	
 	
-	String filename = userinput.nextLine();
+	List<DataPoint> MyData=DataSet.readDataSet("H:\\w19-360420-machine-learning\\data\\"+input);
 	
+	DataPoint dp3 = MyData.get(3);
 	
-	DataSet.readDataSet("C:\\Users\\ziang\\w19-360420-machine-learning\\data\\breastCancer.csv ");
+	System.out.println("is Numeric ? " +  DataSet.isNumeric("H:\\w19-360420-machine-learning\\data\\"+input));
 	
-	System.out.println("");
+	System.out.println(""+dp3.getLabel());
 	
-	DataSet.readDataSetHigherOrderFeatures("C:\\Users\\ziang\\w19-360420-machine-learning\\data\\breastCancer.csv");
-	
-	DataSet.getLabels("\\data\\breastCancer.csv ");
-	
-	System.out.println("is Numeric  " +  DataSet.isNumeric("C:\\Users\\ziang\\w19-360420-machine-learning\\data\\breastCancer.csv"));
-	
+	System.out.println(Arrays.toString(dp3.getX()));
+
 
     //TASK 2:Use the DataSet class to split the fullDataSet into Training and Held Out Test Dataset
+	
+	System.out.println("Please enter a fractioninput for TrainingSet");
+	Scanner op = new Scanner(System.in);
+	double fractionTrainingSet = op.nextDouble();
+	List<DataPoint> xxx = DataSet.getTrainingSet(MyData,fractionTrainingSet);
+	
+	
+	System.out.println("Please enter a fractioninput for TestSet");
+	Scanner sc = new Scanner(System.in);
+	double fractionTestSet = sc.nextDouble();
+	List<DataPoint> qqq= DataSet.getTestSet(MyData,fractionTestSet);
 
-
-    // TASK 3: Use the DataSet class methods to plot the 2D data (binary and multi-class)
 
 
 
