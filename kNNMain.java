@@ -33,10 +33,10 @@ public class kNNMain{
 
 
     //TASK 2:Use the DataSet class to split the fullDataSet into Training and Held Out Test Dataset
-	double fractionTrainingSet = 0.2;
+	double fractionTrainingSet = 0.4;
 	List<DataPoint> xxx = DataSet.getTrainingSet(MyData,fractionTrainingSet);
 	
-	double fractionTestSet = 0.8;
+	double fractionTestSet = 0.6;
 	List<DataPoint> qqq= DataSet.getTestSet(MyData,fractionTestSet);
 
     // TASK 4: write a new method in DataSet.java which takes as arguments to DataPoint objects,
@@ -47,7 +47,7 @@ public class kNNMain{
     // and make a print a predicted target label
 	 
 	 // initiation of an object && create 
-	  int GGG = 5;
+	  int GGG = 3;
       KNNClassifier classifier = new KNNClassifier(GGG);
 
       DataPoint[] somepointsnearby = classifier.getNearestNeighbors(MyData, MyData.get(0)); 
@@ -62,7 +62,7 @@ public class kNNMain{
       {
         for (int p = 0; p < somepointsnearby[k].x.length; p++) 
         
-	    System.out.print(somepointsnearby[k].x[p] + "................");
+	    System.out.print(somepointsnearby[k].x[p] + "  ");
         System.out.println(somepointsnearby[k].getLabel()); 
       }
 
@@ -71,7 +71,49 @@ public class kNNMain{
     // point based on nearest neighbors in training set. Calculate accuracy of model.
 	
 	
+	double cube[]= new double[1000];
+	for (int z=0; z<1000; z++)
+	{	
+		
+		int Rubik=0;
+		for(int i=0; i<(xxx.size()); i++)
+		{
+			DataPoint cplusplus = xxx.get(i);
+			String rob = classifier.predict(xxx, cplusplus);
+			if (rob.equals(cplusplus.label))
+			{
+				Rubik++;
+			}
+		}
+		cube[z]=(((double)Rubik/(double)(xxx.size()))*100.0);
+	}
+	System.out.println("the mean is "+ Mean(cube) + "%");
+	System.out.println("the standard deviation is  is "+ StandardDeviation(cube));
+  }
+	public static double Mean(double[] RUA){
+    double sum = 0.0;
 
+    for (double q : RUA){
+      sum += q;
+    }
+    return (double)sum/RUA.length;
+    }
+
+   
+   // like the name said  
+   // this will give a standarddeviation
+   // but this is require Mean 
+   //  method above 
+   public static double StandardDeviation(double[] RUA){
+    double avg = Mean(RUA);
+    double sum = 0.0;
+    for (double q : RUA){
+      sum += Math.pow(q-avg,2);
+     }
+    return (double)sum/RUA.length;
+      }
+
+	
   }
 
-}
+
