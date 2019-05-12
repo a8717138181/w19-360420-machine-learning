@@ -39,7 +39,7 @@ public class KNNClassifier{
   Arguments:
     - List of DataPoint objects
     - Target DataPoint
-
+	
   Returns:
     - array holding DataPoint objects, in ascending order of distance to Target DataPoint
   */

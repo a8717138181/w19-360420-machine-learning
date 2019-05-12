@@ -13,7 +13,6 @@ import javax.swing.*;
   -mostly static methods which operate on the data set
  */
 public class DataSet {
-
   //////////////////////////////////////////////////////////////////////////////////////////////////
   // method that creates a list of dataPoints
   public static List<DataPoint> readDataSet(String file) throws FileNotFoundException {
@@ -245,14 +244,24 @@ public class DataSet {
     }
   }
   ////////////////////////////////////////////////////////////////////////////
-
   ////////////////////////////////////////////////////////////////////////////
   // TASK 4: make a method here called distanceEuclid 
+  // TASK 4: write a new method in DataSet.java which takes as arguments to DataPoint objects,
+  // and returns the Euclidean distance between those two points (as a double)
+     
+	 
+	 //distance = Math.sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));
 
-public static distanceEuclid(List<DataPoint> fullDataSet)){
-	
-	double distance = Math.sqrt(Math.pow((x1-x2), 2) + Math.pow((y1-y2), 2));
-	return distance;
-}
+ public static double distanceEuclid(DataPoint x,DataPoint y)
+  {
+	double X[]=x.getX();
+	double Y[]=y.getX();
+	double distance= 0;
+	for(int i=0; (i<X.length); i++)
+	{
+		distance+= Math.pow((X[i]-Y[i]),2.0);
+	}
+	return Math.sqrt(distance);
+  }
   ////////////////////////////////////////////////////////////////////////////
 }
