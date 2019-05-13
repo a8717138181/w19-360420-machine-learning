@@ -10,20 +10,12 @@ public class kNNMain{
   public static void main(String... args) throws FileNotFoundException{
     // TASK 1: Use command line arguments to point DataSet.readDataSet method to
     // the desired file. Choose a given DataPoint, and print its features and label
-	System.out.println("Please enter a file name that you want analyse");
-	System.out.println("breastCancer.csv           ");
-	System.out.println("data2DBinary.csv           ");
-	System.out.println("data2DOneVsAll.csv         ");
-	System.out.println("dataML.csv                 ");
-	System.out.println("handwrittenDigits.csv      ");
-	System.out.println("iris.csv                   ");
-	System.out.println("microchip.csv              ");
 
-	String input= null;
-	Scanner userinput = new Scanner(System.in); 
-	input = userinput.nextLine();	
+	String input= args[0];
+	//Scanner userinput = new Scanner(System.in); 
+	//input = userinput.nextLine();	
 	
-	List<DataPoint> MyData=DataSet.readDataSet("C:\\Users\\ziang\\w19-360420-machine-learning\\data\\"+input);
+	List<DataPoint> MyData=DataSet.readDataSet(input);
 	
 	DataPoint dp3 = MyData.get(3);
 	
